@@ -204,3 +204,31 @@ function saff_get_price_decimal_separator() {
     return $separator ? $separator : '.';
 }
 
+function saff_is_user_affiliate( $user ) {
+    
+    $is_affiliate = false;
+    $user_id = 0;
+    if (is_int($user)) {
+        $user_id = $user;
+        $user = new WP_User($user);
+    } elseif ($user instanceof WP_User) {
+        $user_id = $user->ID;
+    }
+
+    if ($user instanceof WP_User) {
+
+        $have_meta = get_user_meta($user_id, 'saff_is_affiliate', true);
+        if ($have_meta) {
+            $is_affiliate = ($have_meta == 'yes') ? true : false;
+        } else {
+            if($user instanceof WP_User) {
+                $role_name = $user->roles[0];
+                $get_affiliate_roles = get_option('affiliate_users_roles');
+                $is_affiliate = (in_array($role_name, $get_affiliate_roles)) ? true : false;
+            }    
+        }
+    }
+    
+    return $is_affiliate;
+}
+

@@ -1,25 +1,35 @@
 <?php
 /*
-  Plugin Name: Smart Affiliates
-  Plugin URI: http://www.storeapps.org/product/smart-affiliates
-  Description: <strong>Smart Affiliates</strong> is the best affiliate management plugin for WooCommerce and WordPress. Track, manage and payout affiliate commissions easily.
-  Version: 0.1
-  Author: Store Apps
-  Author URI: http://www.storeapps.org/
-  Copyright (c) 2015 Store Apps All rights reserved.
- */
+Plugin Name: Smart Affiliates
+Plugin URI: http://www.storeapps.org/product/smart-affiliates
+Description: <strong>Smart Affiliates</strong> is the best affiliate management plugin for WooCommerce and WordPress. Track, manage and payout affiliate commissions easily.
+Version: 0.2
+Author: Store Apps
+Author URI: http://www.storeapps.org/
+Copyright (c) 2015 Store Apps All rights reserved.
+*/
 
 if (!defined('ABSPATH'))
     exit;
 
 register_activation_hook(__FILE__, 'smart_affiliates_activate');
+add_action('admin_init', 'saff_redirect');
 
 function smart_affiliates_activate() {
     
     
     require_once 'includes/class-saff-install.php';
     add_option('saff_default_commission_status', 'unpaid');
+    add_option('saff_do_activation_redirect', true);
     add_option('saff_pname', 'ref');
+}
+
+function saff_redirect() {
+    if (get_option('saff_do_activation_redirect', false)) {
+        delete_option('saff_do_activation_redirect');
+        wp_redirect( admin_url( 'admin.php?page=smart_affiliates_documentation' ) );
+        exit;
+    }
 }
 
 if (!class_exists('Smart_Affiliates')) {
@@ -35,7 +45,6 @@ if (!class_exists('Smart_Affiliates')) {
             
             $this->constants();
             $this->includes();
-            
 
             if (is_admin()) {
                 add_action('admin_menu', array($this, 'add_saff_admin_menu'));
@@ -77,6 +86,10 @@ if (!class_exists('Smart_Affiliates')) {
             
             
         }
+        
+        function admin_menus() {
+            
+        }
 
         function includes() {
             include_once 'smart-affiliates-functions.php';
@@ -89,6 +102,7 @@ if (!class_exists('Smart_Affiliates')) {
                 include_once 'includes/admin/class-saff-admin-dashboard.php';
                 include_once 'includes/admin/class-saff-admin-affiliate.php';
                 include_once 'includes/admin/class-saff-admin-payouts.php';
+                include_once 'includes/admin/class-saff-admin-docs.php';
             }
 
             include_once 'includes/integration/woocommerce/class-integration-woocommerce.php';
@@ -185,6 +199,7 @@ if (!class_exists('Smart_Affiliates')) {
             add_object_page(sprintf(__('Dashboard %s Smart Affiliates', 'translate_saff'), '&rsaquo;'), __('Smart Affiliates', 'translate_saff'), 'smart_affiliates', 'smart_affiliates', 'Saff_Admin_Dashboard::saff_dashboard_page', 'dashicons-star-filled');
             add_submenu_page('smart_affiliates', sprintf(__('Dashboard %s Smart Affiliates', 'translate_saff'), '&rsaquo;'), __('Dashboard', 'translate_saff'), 'manage_options', 'smart_affiliates_dashboard', 'Saff_Admin_Dashboard::saff_dashboard_page');
             add_submenu_page('smart_affiliates', sprintf(__('Settings %s Smart Affiliates', 'translate_saff'), '&rsaquo;'), __('Settings', 'translate_saff'), 'manage_options', 'smart_affiliates_settings', 'Saff_Admin_Settings::saff_settings_page');
+            add_submenu_page('smart_affiliates', sprintf(__('Docs & Support', 'translate_saff'), '&rsaquo;'), __('Docs & Support', 'translate_saff'), 'manage_options', 'smart_affiliates_documentation', 'Saff_Admin_Docs::saff_docs');
         }
 
         function saff_query_vars($query_vars) {
@@ -194,6 +209,7 @@ if (!class_exists('Smart_Affiliates')) {
             $affiliates_pname = ( defined('AFFILIATES_PNAME') ) ? AFFILIATES_PNAME : 'affiliates';
             $migrated_pname = get_option('saff_migrated_pname', $affiliates_pname);
 
+            
             $query_vars[] = $pname;
             $query_vars[] = $migrated_pname;
 
@@ -211,6 +227,7 @@ if (!class_exists('Smart_Affiliates')) {
             $affiliates_pname = ( defined('AFFILIATES_PNAME') ) ? AFFILIATES_PNAME : 'affiliates';
             $migrated_pname = get_option('saff_migrated_pname', $affiliates_pname);
 
+            
             if (empty($wp->query_vars[$pname])) {
                 return;
             }
@@ -225,10 +242,14 @@ if (!class_exists('Smart_Affiliates')) {
                 $affiliate_id = 0;
             }
 
+            
             if ($affiliate_id != 0) {
                 $affiliate = new Saff_Affiliate($affiliate_id);
                 if ($affiliate instanceof Saff_Affiliate && $affiliate->ID != 0) {
                     $is_valid_affiliate = $affiliate->is_valid();
+                    var_dump($is_valid_affiliate);
+                    die('Yes');
+                    
                     if ($is_valid_affiliate) {
                         $encoded_id = saff_encode_affiliate_id($affiliate_id);
                         $days = 2;
@@ -290,3 +311,4 @@ function initialize_smart_affiliates() {
         new Smart_Affiliates();
     }
 }
+

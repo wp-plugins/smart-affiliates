@@ -14,6 +14,9 @@ if (!class_exists('Saff_Admin_Dashboard')) {
             add_action('wp_ajax_add_payout', array($this, 'add_payout'));
             add_action('wp_ajax_make_payment', array($this, 'make_payment'));
         }
+        
+        // retrieves a list of users via live search
+
 
         function register_admin_dashboard_scripts() {
             

@@ -4,7 +4,7 @@ Donate link:http://www.storeapps.org/
 Tags: affiliates, affiliate wordpress, commission, woocommerce, affiliatewp, ecommerce, partner, share, affiliate plugin
 Requires at least: 3.9
 Tested up to: 4.1.1
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -85,9 +85,15 @@ Additionally, go to Users - All Users and select a user. You will see their affi
 
 == Upgrade Notice ==
 = 0.1 =
+You can set individual users as affiliate now.
+
+= 0.1 =
 Initial Release 
 
 
 == Changelog ==
+= 0.2 =
+* You can set individual users as affiliate now.
+
 = 0.1 =
 * Initial Release

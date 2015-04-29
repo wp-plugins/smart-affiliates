@@ -37,11 +37,17 @@ if (!class_exists('Saff_Migrate_Affiliates')) {
                         update_option( 'saff_migrated_pname', $pname);
                         
                         update_option( 'show_migrate_affiliates_notification', 'no' );
+                        
                     }
 
                     if ($_REQUEST['migrate'] == 'ignore_affiliates') {
                         update_option('show_migrate_affiliates_notification', 'no');
                     }
+                    
+                    if($_REQUEST['is_from_docs'] == 1) {
+                        $docs_page = add_query_arg(array('page' => 'smart_affiliates_documentation'), admin_url('admin.php'));
+                        wp_safe_redirect($docs_page);
+                    }   
                 }
                 
                 if ((saff_is_plugin_active('affiliates/affiliates.php') || saff_is_plugin_active('affiliates-pro/affiliates-pro.php')) && defined('AFFILIATES_TP')) {

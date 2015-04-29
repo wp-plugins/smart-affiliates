@@ -9,14 +9,54 @@ if (!class_exists('Saff_Admin_Settings')) {
         function __construct() {
 
             add_action('admin_enqueue_scripts', array($this, 'register_admin_settings_styles'));
+            add_action('admin_enqueue_scripts', array($this, 'register_admin_settings_scripts'));
+            //add_action( 'wp_ajax_saff_search_users', array($this, 'saff_search_users' ));
+        }
+        
+        
+        function saff_search_users() {
+
+            if (empty($_POST['user_name'])) {
+                die('-1');
+            }
+
+
+            $search_query = htmlentities2(trim($_POST['user_name']));
+
+            $found_users = get_users(array(
+                'number' => 9999,
+                'search' => $search_query . '*'
+                    )
+            );
+
+            if ($found_users) {
+                $user_list = '<ul>';
+                foreach ($found_users as $user) {
+                    $user_list .= '<li><a href="#" data-id="' . esc_attr($user->ID) . '" data-login="' . esc_attr($user->user_login) . '">' . esc_html($user->user_login) . '</a></li>';
+                }
+                $user_list .= '</ul>';
+
+                echo json_encode(array('results' => $user_list, 'id' => 'found'));
+            } else {
+                echo json_encode(array('results' => '<p>' . __('No users found', 'affiliate-wp') . '</p>', 'id' => 'fail'));
+            }
+
+            die();
         }
 
         function register_admin_settings_styles() {
             wp_register_style('saff-admin-settings-style', SAFF_PLUGIN_URL . '/assets/css/saff-admin-settings.css');
         }
+        
+        function register_admin_settings_scripts() {
+            wp_register_script('saff-admin-settings-script', SAFF_PLUGIN_URL . '/assets/js/saff-admin-settings.js', array('jquery'));
+        }
 
         static function saff_settings_page() {
             global $wpdb, $wp_roles;
+            
+            
+            wp_enqueue_script('saff-admin-settings-script');
 
             if (!wp_style_is('saff-admin-settings-style')) {
                 wp_enqueue_style('saff-admin-settings-style');
@@ -91,6 +131,23 @@ if (!class_exists('Saff_Admin_Settings')) {
             $approve_commissions = get_option('approve_commissions');
             ?>
                     <table class="form-table">
+                        
+                        <!--
+                        <tr class="form-row form-required">
+				<th scope="row">
+					<label for="user_name"><?php _e( 'User', 'affiliate-wp' ); ?></label>
+				</th>
+				<td>
+					<span class="affwp-ajax-search-wrap">
+						<input type="text" name="user_name" id="user_name" class="affwp-user-search" autocomplete="off" />
+						<img class="affwp-ajax waiting" src="<?php echo admin_url('images/wpspin_light.gif'); ?>" style="display: none;"/>
+					</span>
+					<div id="affwp_user_search_results"></div>
+					<p class="description"><?php _e( 'Begin typing the name of the affiliate to perform a search for their associated user account.', 'affiliate-wp' ); ?></p>
+				</td>
+			</tr>
+                        -->
+                        
                         <tr>
                             <th scope="row"><label><?php echo __('Affiliate Users Roles', SAFF_TEXT_DOMAIN); ?></label></th>
                             <td>

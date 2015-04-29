@@ -12,7 +12,7 @@
 	    	var newValue = prevValue + commission;
 	    	jQuery('#saff_commissions_to_pay').text(newValue);
 	    });
-
+            
     });
 
 

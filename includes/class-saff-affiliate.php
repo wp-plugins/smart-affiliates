@@ -14,13 +14,7 @@ if (!class_exists('Saff_Affiliate')) {
          */
         
         function is_valid() {
-           $affiliate_users_roles = get_option( 'affiliate_users_roles');
-           $role = $this->roles[0];
-           if(in_array($role, $affiliate_users_roles)) {
-               return true;
-           }
-           
-           return false;
+           return saff_is_user_affiliate($this);
         }
         // Update Record Hit of an affiliate
     }
