@@ -1,0 +1,29 @@
+.saff_settings_wrapper{
+	font-size: 1em;
+}
+.saff_settings_wrapper .form-table td{
+	/*font-size: 15px;*/
+	font-size: .9em !important;
+}
+.saff_settings_wrapper label{
+	font-weight: normal !important;
+	font-size: .9em;
+	vertical-align: text-bottom;
+
+}
+.migrate_affiliates_actions {
+	float: right;
+	margin-top: -5px;
+}
+.saff_small_input_number {
+	width: 5em;
+}
+.saff_paypal_api_details_table {
+	width: 100%;
+}
+.saff_paypal_api_details_table input[type=text] {
+	width: 90%;
+}
+.saff_paypal_api_details_table th {
+	width: 20%;
+}

@@ -1,0 +1,508 @@
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.width_30 {
+    width: 30%;
+}
+.width_40 {
+    width: 39%;
+}
+
+.saff_dashboard_wrapper label{
+    font-weight: normal;
+
+}
+.saff_breadcrum{
+    font-size: .8em;
+    vertical-align: top;
+}
+
+.saff_empty_container {
+    display: none;
+}
+
+.saff-payout-history .form-table td {
+    padding: 6px 11px;
+    font-size: 11px;
+    width: 24%;
+}
+/* ===== KPI =====*/
+
+.saff_total_sales_value {
+}
+
+.saff_unpaid_commissions_value {
+
+}
+
+.saff_customer_value {
+}
+
+/* ===== Affiliates ===== */
+.saff_dashboard_container > div{
+    margin-top: 1em;
+    background-color: #FFFFFF;
+}
+
+.affiliate_unpaid_commissions_value, .saff_unpaid_commissions_value, .saff_kpi_unpaid_commissions_value {
+    color: #CF000F;
+}
+
+
+.saff_dashboard_kpi_container {
+    height: 6em;
+    margin-left: 4%;
+    margin-right: 4%;
+    /*padding: 1.2em 0;*/
+    /*background-color: #CCEBEB;*/
+    /*background-color: #C5EFF7;*/
+}
+.saff_dashboard_kpis {
+    height: 100%;
+}
+.saff_dashboard_kpis strong{
+    font-weight: normal;
+}
+.saff_dashboard_kpis .kpi_value{
+    font-size: 1.8em;
+    padding-top: 1em;
+    color: #34495E;
+}
+.saff_net_sales_value{
+    color: #26A65B !important;
+}
+.saff_dashboard_kpis .kpi_text{
+    margin-top: 10px;
+}
+.saff_dashboard_kpis > div {
+    width:33%;
+    margin: 0 1%;
+    float:left;
+    height: 100%;
+    text-align: left;
+}
+.saff_kpis_net_sales_container,
+.saff_visitor_container{
+    text-align: right !important;
+    margin-right: 5%;
+}
+.saff_dashboard_kpis > div.saff_visitor_customer_container{
+
+}
+.saff_unpaid_commissions_container {
+    width:28% !important;
+    /*border-left: 1px solid #BBB;*/
+    /*border-right: 1px solid #BBB;*/
+    text-align: center !important;;
+}
+.saff_unpaid_commissions_container > div{
+    width: 100%;
+    clear: both;
+
+}
+.saff_dashboard_kpis .saff_unpaid_commissions {
+}
+.saff_dashboard_wrapper {
+    /*padding: 2em 0;*/
+}
+#saff_dashboard_from, 
+#saff_dashboard_to {
+    text-align: center;
+    width: 8em;
+}
+.saff_dashboard_time_period_filter {
+    padding: 0.6em .8em;
+    background-color: #C5EFF7;
+    border: solid 1px  #7BD2E3;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 3px;
+    /*border: solid 1px;*/
+}
+.saff_dashboard_time_period_filter > p{
+    margin: 0;
+}
+.saff_dashboard_time_period_filter #saff_dashboard_smart_date_selector{
+    float: right;
+}
+
+
+/*.saff_dashboard_kpi_container,*/
+.saff_dashboard_main_view_container {
+    /*margin: 1em 0;*/
+    /*border: solid 2px #777;*/
+    /*height: 60em;*/
+    width: 100%;
+    margin-top: 0 !important; 
+    border-top: 1px dashed #DDD;
+}
+.saff_dashboard_main_view_container > div {
+    height: 100%;
+    float: left;
+}
+.saff_left_panel{
+    width: 30%;
+}
+
+.saff_details {
+    width: 70%;
+    
+}
+.saff_details > div {
+    border-left: 1px solid #CCC;
+}
+.saff_left_panel > div{
+    width: 100%;
+    clear: both;
+    float: left;
+}
+.saff_left_panel_header {
+    height: 4.5em;
+    border-bottom: 1px solid #DDD;
+    padding: 1em 3% .5em 3%;
+    width: 94% !important;
+}
+.saff_left_panel_lists{
+    /*height: 33.5em;*/
+    /*overflow-y: scroll;*/
+    
+}
+.saff_lists {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /*position: absolute;*/
+    /*width: 29.8%;*/
+    /*float: left;*/
+}
+.saff_lists > li{
+    margin: 0;
+    padding: 1% 1% 1% 3%;
+    width: 96%;
+}
+
+
+
+.saff_dashboard_sort_filter {
+    height: 3em;
+}
+
+
+
+
+
+li.saff_affiliate_name {
+    margin: 30px 20px 30px 15px;
+
+}
+
+span.saff_commission_amt {
+    color: #CF000F;
+}
+
+/** Dashboard - Aff Details View **/
+
+.saff_details_header {
+    height: 4.5em;
+    padding: 1em 1% .5em 1%;
+    border-bottom: 1px solid #DDD;
+    width: 98%;
+}
+
+.saff_details_aff_stats {
+    height: 7em;
+    padding: 1em;
+}
+.saff_details_aff_stats .kpi_value{
+    font-size: 1.2em;
+
+}
+.saff_details_aff_stats .kpi_text{
+
+}
+
+.saff_details_aff_payment {
+    margin: .5em 1% 0 1%;
+    background-color: #FFFFE0;
+    padding: .5em;
+}
+
+.saff_details_dynamic_container {
+    margin: 2% 1% 0 1%;
+    width: 98%;
+    /*height: 20em;*/
+}
+.saff_details_dynamic_container .form-table td{
+    padding: 5px !important;
+    font-size: 11px;
+}
+
+.saff-affiliates-orders {
+    /*overflow-y: scroll;
+    height: 34.5em;*/
+    min-height: 15em;
+    padding-bottom: 2em;
+}
+
+.aff_name {
+    width: 70%;
+    float: left;
+    height:100%;
+
+}
+
+.aff_name .avatar {
+}
+
+.aff_name .name {
+}
+
+.aff_net_sales {
+    float: left;
+    width:30%;
+    height:100%;
+}
+.aff_net_sales .kpi_value{
+    font-size: 1.4em;
+    /*color: green;*/
+    padding-top: 1em;
+}
+.aff_net_sales .kpi_text{
+
+}
+.saff_payment_action_container {
+    width: 25%;
+    float: right;
+}
+
+.column_1,
+.column_2 {
+    width: 30%;
+    float: right;
+}
+.column_3 {
+    width: 40%;
+}
+.aff_stats_row_1 {
+    /*margin: 1% 0% 2% 0%;*/
+    margin-bottom: 1.3em;
+}
+.aff_stats_row_2 {
+    /*margin: 3% 0% 1% 0%;*/
+}
+#pay_now_button {
+    float: right;
+    margin: -2.5% 0;
+}
+.saff_payment_description_row_1 {
+
+}
+.saff_payment_description_row_2 a{
+    margin-right: .5em;
+
+}
+
+/* === Affiliates === */
+
+.all_affiliate_row_2 {
+
+}
+
+#all_affiliates_checkbox {
+
+}
+.affiliate_main {
+    /*position: absolute;*/
+    /*left: 3.5em;*/
+}
+.affiliate_container {
+    /*padding: 1em 1em 0em 1em;*/
+}
+.add_affiliate_button {
+    float: right;
+    margin: 3% 0;
+}
+.add_affiliate_button .fa-plus-circle {
+    vertical-align: top;
+}
+.saff_right_icons {
+    float: right;
+    margin: 3% 0;
+}
+.aff_link {
+    /*margin-left: -3em;*/
+}
+.aff_detail {
+    /*position: absolute;*/
+    position: relative;
+    float: left;
+}
+.aff_avatar {
+    float: left;
+    margin: 3.5px 1em 0 0;
+    position: relative;
+}
+
+.left_aff_avatar {
+    float: left;
+    margin: -0.5em 1em 0 0;
+    position: relative;
+}
+
+.aff_avatar > img{
+    -moz-border-radius: 32px;
+    -webkit-border-radius: 32px;
+    border-radius: 32px;
+}
+/*.aff_container {
+    padding: 3% 3% 0% 3%;
+}*/
+.saff_net_sales_container {
+    /*padding: 1em;*/
+}
+.saff_form_table_action {
+    /*padding: 1em 0em 0em 1em;*/
+}
+.saff_customer_container {
+    float: right;
+}
+
+.saff_sales_container .pie_chart,
+.saff_visitor_customer_container .pie_chart {
+    width: 5%;
+    padding-top: 9%;
+    padding-right: 7%;
+}
+
+
+.saff_sales_container > div,
+.saff_visitor_customer_container > div{
+    width: 40%;
+    float: left;
+}
+
+
+.close_add_payout_form{
+    float: right;
+}
+.saff_details_form {
+    background-color: #FFFFFF;
+    margin: 0 1%;
+    padding: 0.5em;
+}
+
+/* ========= */
+.saff_filter_commission_status {
+    width: 11em;
+}
+.saff_filter_commission_status_span {
+    float: right;
+}
+.saff_commission_status {
+    width: 6em;
+}
+
+.aff_highlight {
+    background-color: #C5EFF7;
+    /*margin-right: 3px;*/
+    font-weight: bold !important;
+}
+.aff_highlight label{
+    font-weight: bold !important;
+}
+.saff_left_panel_header .all_affiliate_row_1 label{
+    color: #124964;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding-top: 6px;
+}
+
+.saff_aff_item {
+    /*padding-bottom: 12%;*/
+}
+
+.commission_number {
+    padding-right: 3px;
+}
+
+.empty_results {
+    text-align: center;
+    padding: 3em;
+    font-style: italic;
+    color: #777;
+}
+
+/* Affiliate Details Options */
+.saff-nav-tab {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #e4e4e4;
+    border-color: #ccc #ccc -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    color: #555;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 16px;
+    margin: -4px 4px -1px 0;
+    padding: 4px 14px 6px;
+    text-decoration: none;
+}
+
+h2 .saff-nav-tab {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 24px;
+    padding: 6px 10px;
+}
+
+h2.saff-nav-tab-wrapper, h3.saff-nav-tab-wrapper {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0;
+    padding-left: 10px;
+}
+
+.saff-nav-tab-active, .saff-nav-tab-active:hover {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #000;
+}
+
+.groupped_date {
+    border-bottom: 1px dashed #ddd;
+}
+
+/* Spinner */
+.saff_spinner {
+    margin-left: 5px;
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.clear{
+    clear: both;
+}
+
+
+
+/* Cursoe Pointer */
+
+.cursor_pointer {
+    cursor:pointer;
+}
+
+.active_link {
+    color: #0000FF;
+}
